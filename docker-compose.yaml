@@ -1,6 +1,6 @@
 version: "3"
 services:
-  diff:
+  db_resolver:
     image: golang:1.14
     tty: true
     command: bash

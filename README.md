@@ -1,4 +1,4 @@
-# mysql_condition
+# db_resolver
 
 ## Usage
 

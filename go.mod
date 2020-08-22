@@ -1,4 +1,4 @@
-module github.com/oshiro3/differ
+module github.com/oshiro3/db_resolver
 
 go 1.14
 

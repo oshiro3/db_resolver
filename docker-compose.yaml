@@ -4,9 +4,12 @@ services:
     image: golang:1.14
     tty: true
     command: bash
-    working_dir: /go/src  
+    working_dir: /go/src/github.com/oshiro3/db_resolver
+    environment:
+      TZ: Asia/Tokyo
+      DB_RESOLVER_ROOT: /go/src/github.com/oshiro3/db_resolver
     volumes:
-      - ./:/go/src/
+      - ./:/go/src/github.com/oshiro3/db_resolver
 
   db:
     image: mysql:5.7
@@ -20,8 +23,6 @@ services:
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
       - ./db:/db
-    ports:
-      - 3306:3306
 
   phpmyadmin:
     container_name: test_phpmyadmin
@@ -32,5 +33,16 @@ services:
       - PMA_USER=root
       - PMA_PASSWORD=root
     ports:
-      - 8080:80
+      - 8081:80
+  
+  git_host:
+    container_name: githost
+    image: gitbucket/gitbucket
+    volumes:
+      - git_data:/gitbucket
+    ports:
+      - 8080:8080
+
+volumes:
+  git_data:  
 

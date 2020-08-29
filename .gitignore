@@ -1,0 +1,3 @@
+db_resolver
+schemas/new_schema.origin.sql
+schemas/old_schema.origin.sql

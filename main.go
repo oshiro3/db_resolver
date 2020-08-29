@@ -1,7 +1,9 @@
 package main
 
-func main() {
+import (
+	"github.com/oshiro3/db_resolver/cmd"
+)
 
-	compare()
-	schemaMigrate()
+func main() {
+	cmd.Execute()
 }

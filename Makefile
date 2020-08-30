@@ -7,7 +7,7 @@ clean:
 		mv dbs/test_database/sqls/down dbs/test_database/sqls/01_create_table.down.sql
 		echo "1" > dbs/test_database/version
 		rm -f dbs/test_database/schema.sql
-		mv dbs/test_database/out_of_date_schema.sql dbs/test_database/schema.sql
+		cp schemas/old_schema.sql dbs/test_database/schema.sql
 		rm -f db_resolver
 		docker-compose down
 
@@ -29,3 +29,7 @@ up:
 init:
 		chmod +x init-mysql.sh
 		./init-mysql.sh
+
+.PHONY: test
+test:
+		
